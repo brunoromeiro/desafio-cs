@@ -1,3 +1,22 @@
-<p>
-  repos works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div *ngIf="dataRepos">
+          <div class="card">
+              <h3 class="card-header"><fa-icon [icon]="faFileArchive"></fa-icon> {{dataRepos.name | uppercase}}</h3>
+              <div class="card-body">
+                <span class="badge badge-warning"><fa-icon [icon]="faStar"></fa-icon>{{dataRepos.stargazers_count}}</span>&nbsp;<span class="badge badge-info" *ngIf="dataRepos.language">{{dataRepos.language}}</span>
+                <!-- <h5 class="card-title"><a href="/user/{{dataRepos.owner.login}}" target="_blank"><fa-icon [icon]="faUser"></fa-icon>  {{dataRepos.owner.login}}</a></h5> -->
+                <p class="card-text">{{ dataRepos.description }}</p>
+                <a href="{{dataRepos.html_url}}" target="_blank" class="card-link btn btn-dark">Ver no gitHub</a>
+                <a href="/user/{{dataRepos.owner.login}}" class="card-link btn btn-light">Voltar</a>
+              </div>
+              <div class="card-footer">
+                  <small class="text-muted"><a href="/user/{{dataRepos.owner.login}}" class="text-muted" target="_blank"><fa-icon [icon]="faUser"></fa-icon>  {{dataRepos.owner.login}}</a></small>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
