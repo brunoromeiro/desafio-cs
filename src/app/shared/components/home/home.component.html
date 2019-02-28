@@ -1,3 +1,42 @@
-<p>
-  home works!
-</p>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-6 md-4">
+
+      <form (ngSubmit)="onSearch()">
+        <mat-form-field>
+          <input matInput ngPlacholder="Usuário Github" name="username" [(ngModel)]="datausername" />
+        </mat-form-field>
+
+          <button type="submit" mat-flat-button color="primary">Buscar</button>
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- <div *ngIf="data">
+    <ul *ngFor="let item of data.items">
+      <li><img class="img" src="{{item.avatar_url}}" alt=""> {{item.login}}</li>
+    </ul>
+  </div> -->
+
+  <div class="row" *ngIf="data">
+    <div class="col">
+      <table mdbTable class="z-depth-1">
+
+        <tbody>
+          <tr *ngFor="let item of data.items">
+              <td>
+                <img src="{{item.avatar_url}}" alt="{{item.login}}" class="img"><a href="/user/{{item.login}}">{{item.login}}</a>
+              </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+  </div>
+
+</div>
+
