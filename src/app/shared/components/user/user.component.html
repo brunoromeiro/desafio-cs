@@ -1,3 +1,49 @@
-<p>
-  user works!
-</p>
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col-sm-4">
+
+      <div class="card">
+        <h5 class="card-header">{{href.login}}</h5>
+        <img src="{{href.avatar_url}}" alt="" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{href.name}}</h5>
+          <p class="card-text">{{ href.bio }}</p>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item">Email: {{href.email || 'private'}}</li>
+              <li class="list-group-item">Followers: {{ href.followers }}</li>
+              <li class="list-group-item">Following: {{ href.following }}</li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-8" *ngIf="!toogleTable">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Linguagem</th>
+            <th>Stars</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of repos">
+            <td><a href="user/{{href.login}}/{{item.name}}">{{item.name}}</a></td>
+            <td>{{item.language}}</td>
+            <td>{{item.stargazers_count}}</td>
+            <td>
+              <a class="btn btn-success" href="{{item.html_url}}" target="_blank"><fa-icon [icon]="faExternalLinkAlt"></fa-icon> Github</a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="col-sm-8 align-self-center" *ngIf="toogleTable">
+      <h5>Não possui repositórios</h5>
+    </div>
+  </div>
+</div>
