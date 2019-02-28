@@ -6,8 +6,8 @@ import { UserComponent } from './shared/components/user/user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'repositorio/:name', component: ReposComponent },
-  { path: 'usuario/:user', component: UserComponent }
+  { path: 'user/:user/:repos', component: ReposComponent },
+  { path: 'user/:user', component: UserComponent }
 ];
 
 @NgModule({
