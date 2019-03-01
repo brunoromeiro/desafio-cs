@@ -2,18 +2,16 @@
   <div class="row align-items-start">
     <div class="col-sm-4">
 
-        <fa-icon [icon]="fabFaJediOrder"></fa-icon>
-
-      <div class="card">
-        <h5 class="card-header">{{href.login}}</h5>
-        <img src="{{href.avatar_url}}" alt="" class="card-img-top">
+      <div class="card" *ngIf="user">
+        <h5 class="card-header">{{user.login}}</h5>
+        <img src="{{user.avatar_url}}" alt="" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">{{href.name}}</h5>
-          <p class="card-text">{{ href.bio }}</p>
+          <h5 class="card-title">{{user.name}}</h5>
+          <p class="card-text">{{ user.bio }}</p>
           <ul class="list-group list-group-flush">
-              <li class="list-group-item">Email: {{href.email || 'private'}}</li>
-              <li class="list-group-item">Followers: {{ href.followers }}</li>
-              <li class="list-group-item">Following: {{ href.following }}</li>
+              <li class="list-group-item">Email: {{user.email || 'private'}}</li>
+              <li class="list-group-item">Followers: {{ user.followers }}</li>
+              <li class="list-group-item">Following: {{ user.following }}</li>
           </ul>
 
         </div>
@@ -34,7 +32,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of repos">
-            <td><a routerLink="/user/{{href.login}}/{{item.name}}" routerLinkActive="router-link-active">{{item.name}}</a></td>
+            <td><a routerLink="/user/{{user.login}}/{{item.name}}" routerLinkActive="router-link-active">{{item.name}}</a></td>
             <td>{{item.language}}</td>
             <td>{{item.stargazers_count}}</td>
             <td>
