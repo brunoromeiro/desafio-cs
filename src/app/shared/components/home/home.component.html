@@ -1,16 +1,24 @@
 <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col-6 md-4">
+    <div class="col-sm-12 col-md-6">
 
-      <form (ngSubmit)="onSearch()">
-        <mat-form-field>
-          <input matInput ngPlacholder="Usuário Github" name="username" [(ngModel)]="datausername" />
-        </mat-form-field>
+        <div class="jumbotron">
+            <h3 class="display-4">Desafio FrontEnd</h3>
+            <p class="lead">Desafio desenvolvido em Angular por Bruno Romeiro.</p>
+            <hr class="my-4">
 
-          <button type="submit" mat-flat-button color="primary">Buscar</button>
+          <form (ngSubmit)="onSearch()">
 
+                  <div class="form-group">
+                    <input placeholder="Digite um Usuário Github" id="username" name="username" [(ngModel)]="datausername" class="form-control"/>
 
-      </form>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-block">Buscar</button>
+
+          </form>
+
+        </div>
 
     </div>
 
@@ -24,6 +32,7 @@
 
   <div class="row" *ngIf="data">
     <div class="col">
+
       <table mdbTable class="z-depth-1">
 
         <tbody>
