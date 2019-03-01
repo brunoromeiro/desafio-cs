@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { faExternalLinkAlt, faSort } from '@fortawesome/free-solid-svg-icons';
-import { fabFaJediOrder } from '@fortawesome/fontawesome-free';
 
 @Component({
   selector: 'app-user',
@@ -12,9 +11,8 @@ import { fabFaJediOrder } from '@fortawesome/fontawesome-free';
 
 export class UserComponent implements OnInit {
   faExternalLinkAlt = faExternalLinkAlt;
-  fabFaJediOrder = fabFaJediOrder;
   faSort = faSort;
-  href;
+  user;
   repos;
   toogleTable: boolean;
   headerTable = [
@@ -31,7 +29,7 @@ export class UserComponent implements OnInit {
 
     this.service.getUser(user)
       .subscribe(
-        data => this.href = data,
+        data => this.user = data,
         err => console.log(err)
       );
 
