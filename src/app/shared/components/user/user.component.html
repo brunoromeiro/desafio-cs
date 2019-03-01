@@ -2,6 +2,8 @@
   <div class="row align-items-start">
     <div class="col-sm-4">
 
+        <fa-icon [icon]="fabFaJediOrder"></fa-icon>
+
       <div class="card">
         <h5 class="card-header">{{href.login}}</h5>
         <img src="{{href.avatar_url}}" alt="" class="card-img-top">
@@ -19,13 +21,15 @@
 
     </div>
     <div class="col-sm-8" *ngIf="!toogleTable">
+
       <table class="table">
         <thead>
           <tr>
-            <th>Name</th>
+            <th class="table-header" *ngFor="let item of headerTable" (click)="onSort(repos, item.type, item.order);toggleOrder(item);">{{item.name}} <fa-icon class="-{{item.type}}" [icon]="faSort"></fa-icon></th>
+            <!-- <th>Name</th>
             <th>Linguagem</th>
-            <th>Stars</th>
-            <th>Ações</th>
+            <th (click)="onSort(repos)">Stars</th>
+            <th>Ações</th> -->
           </tr>
         </thead>
         <tbody>

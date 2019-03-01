@@ -1,9 +1,8 @@
-import { switchMap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt, faSort } from '@fortawesome/free-solid-svg-icons';
+import { fabFaJediOrder } from '@fortawesome/fontawesome-free';
 
 @Component({
   selector: 'app-user',
@@ -13,14 +12,22 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 export class UserComponent implements OnInit {
   faExternalLinkAlt = faExternalLinkAlt;
+  fabFaJediOrder = fabFaJediOrder;
+  faSort = faSort;
   href;
   repos;
   toogleTable: boolean;
+  headerTable = [
+    {name: 'Repositório', type: 'name', order: true},
+    {name: 'Linguagem', type: 'language', order: true},
+    {name: 'Stars', type: 'stargazers_count', order: true},
+    {name: 'Ações', type: 'actions', order: undefined}
+  ];
 
   constructor(private route: ActivatedRoute, private router: Router, private service: ApiService) {  }
 
   ngOnInit() {
-    let user = this.route.snapshot.paramMap.get('user');
+    const user = this.route.snapshot.paramMap.get('user');
 
     this.service.getUser(user)
       .subscribe(
@@ -32,17 +39,41 @@ export class UserComponent implements OnInit {
       .subscribe(
         data => {
           this.repos = data;
-          this.onSort(this.repos);
         },
         err => console.log(err)
       );
 
   }
 
-  onSort(obj) {
-    obj.sort((a) => {
-      console.log(a);
-    });
+  onSort(obj, type, order) {
+    console.log(type, order);
+    if (type !== 'actions') {
+      if (order) {
+        obj.sort((a, b) => {
+          if (a[type] > b[type]) {
+            return 1;
+          }
+          if (a[type] < b[type]) {
+            return -1;
+          }
+          return 0;
+        });
+      } else {
+        obj.sort((a, b) => {
+          if (a[type] < b[type]) {
+            return 1;
+          }
+          if (a[type] > b[type]) {
+            return -1;
+          }
+          return 0;
+        });
+      }
+    }
+  }
+
+  toggleOrder(item) {
+    item.order = !item.order;
   }
 
 }
