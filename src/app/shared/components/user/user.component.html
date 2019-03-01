@@ -34,7 +34,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of repos">
-            <td><a href="user/{{href.login}}/{{item.name}}">{{item.name}}</a></td>
+            <td><a routerLink="/user/{{href.login}}/{{item.name}}" routerLinkActive="router-link-active">{{item.name}}</a></td>
             <td>{{item.language}}</td>
             <td>{{item.stargazers_count}}</td>
             <td>

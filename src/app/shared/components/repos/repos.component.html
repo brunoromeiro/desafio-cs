@@ -13,7 +13,7 @@
                 <a href="/user/{{dataRepos.owner.login}}" class="card-link btn btn-light">Voltar</a>
               </div>
               <div class="card-footer">
-                  <small class="text-muted"><a href="/user/{{dataRepos.owner.login}}" class="text-muted" target="_blank"><fa-icon [icon]="faUser"></fa-icon>  {{dataRepos.owner.login}}</a></small>
+                  <small class="text-muted"><a routerLink="/user/{{dataRepos.owner.login}}" routerLinkActive="router-link-active" class="text-muted"><fa-icon [icon]="faUser"></fa-icon>  {{dataRepos.owner.login}}</a></small>
                 </div>
             </div>
       </div>
