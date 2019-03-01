@@ -33,12 +33,12 @@
   <div class="row" *ngIf="data">
     <div class="col">
 
-      <table mdbTable class="z-depth-1">
+      <table class="table">
 
         <tbody>
           <tr *ngFor="let item of data.items">
               <td>
-                <img src="{{item.avatar_url}}" alt="{{item.login}}" class="img"><a href="/user/{{item.login}}">{{item.login}}</a>
+                <img src="{{item.avatar_url}}" alt="{{item.login}}" class="img"><a routerLink="/user/{{item.login}}" routerLinkActive="router-link-active">{{item.login}}</a>
               </td>
           </tr>
 
