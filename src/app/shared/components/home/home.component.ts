@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
   }
 
   onSearch() {
-    console.log('cliquei', this.datausername);
     this.api.searchUsers(this.datausername)
       .subscribe(
         data => {
@@ -32,14 +31,12 @@ export class HomeComponent implements OnInit {
             result: true
           };
           this.data = data;
-          console.log(this.elements);
         },
         err => {
           console.log(err);
         }
       );
 
-    console.log(this.user);
   }
 
 

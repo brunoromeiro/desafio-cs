@@ -10,7 +10,7 @@
                 <!-- <h5 class="card-title"><a href="/user/{{dataRepos.owner.login}}" target="_blank"><fa-icon [icon]="faUser"></fa-icon>  {{dataRepos.owner.login}}</a></h5> -->
                 <p class="card-text">{{ dataRepos.description }}</p>
                 <a href="{{dataRepos.html_url}}" target="_blank" class="card-link btn btn-dark">Ver no gitHub</a>
-                <a href="/user/{{dataRepos.owner.login}}" class="card-link btn btn-light">Voltar</a>
+                <a routerLink="/user/{{dataRepos.owner.login}}" routerLinkActive="router-link-active" class="card-link btn btn-light">Voltar</a>
               </div>
               <div class="card-footer">
                   <small class="text-muted"><a routerLink="/user/{{dataRepos.owner.login}}" routerLinkActive="router-link-active" class="text-muted"><fa-icon [icon]="faUser"></fa-icon>  {{dataRepos.owner.login}}</a></small>
