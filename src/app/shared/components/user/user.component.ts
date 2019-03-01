@@ -46,7 +46,7 @@ export class UserComponent implements OnInit {
   }
 
   onSort(obj, type, order) {
-    console.log(type, order);
+
     if (type !== 'actions') {
       if (order) {
         obj.sort((a, b) => {
