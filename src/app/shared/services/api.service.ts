@@ -21,7 +21,6 @@ export class ApiService {
   }
 
   getUser(username: string) {
-    console.log('api', username);
     const url = `https://api.github.com/users/${username}`;
     return this.http.get(url);
   }
