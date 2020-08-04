@@ -9,7 +9,22 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/brunoromeiro/desafio-cs.git"
+},
+  "keywords": [],
+  "author": {
+    "name": "Bruno Romeiro",
+    "email": "bruno.romeiro@gmail.com",
+    "url": "https://www.brunoromeiro.com.br"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunoromeiro/desafio-cs/issues"
+  },
+  "homepage": "https://github.com/brunoromeiro/desafio-cs",
+  "private": false,
   "dependencies": {
     "@angular/animations": "^10.0.7",
     "@angular/cdk": "^7.3.3",
