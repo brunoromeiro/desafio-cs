@@ -1,5 +1,7 @@
 # Desafio utilizando ApiGitHub
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/31bce803-ab3c-4a47-9c23-d08e11dc9aaf/deploy-status)](https://app.netlify.com/sites/desafio-brunoromeiro/deploys)
+
 **Proposta:**  
 Implementar uma aplicação client-side, que consulte a API do GitHub e mostre os repositórios mais populares de um determinado usuário. Esta aplicação deve funcionar nos navegadores mais recentes do mercado.
 
