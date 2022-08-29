@@ -9,7 +9,8 @@
 
           <form (ngSubmit)="onSearch()">
 
-                  <div class="form-group">
+                  <div class="mb-3">
+                    <label for="username" class="form-label">Usuário do Github</label>
                     <input placeholder="Digite um Usuário Github" id="username" name="username" [(ngModel)]="datausername" class="form-control"/>
 
                   </div>
